@@ -1,0 +1,15 @@
+#!/bin/bash
+
+function echo_and_run
+{
+   echo $@
+   $@
+}
+
+
+echo_and_run hdfs dfs -rm -r -f /hw1
+echo_and_run hdfs dfs -mkdir /hw1
+echo "cd input"
+cd input
+echo_and_run hdfs dfs -put *.tbl /hw1
+echo_and_run hdfs dfs -ls /hw1
